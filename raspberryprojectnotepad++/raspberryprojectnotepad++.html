@@ -1,0 +1,51 @@
+
+
+
+
+ 1 <!DOCTYPE html>
+ 2 <html>
+ 3 <head>
+ 4     <meta charset = "UTF-8">
+ 5     <meta http-equiv="refresh" content = "30">
+ 6     <style type = "text/css">
+ 7         .spec{
+ 8             text-align:center;
+ 9         }
+10         .con{
+11             text-align:left;
+12         }
+13         </style>
+14 </head>
+15 <body>
+16     <h1 align = "center">My Database</h1>
+17     <div class = "spec">
+18         #<b>The sensor value desciption</b><br>
+19         # 1 ~ 99 humi <br>
+20         # 1~99 temp
+21     </div>
+22
+23     <table border = '1' style = "width = 30%" align = "center">
+24     <tr align ="center">
+25         <th>TD</th>
+26         <th>DATE</th>
+27         <th>TIME</th>
+28         <th>MOISTURE</th>
+29         <th>TEMPERATURE</th>
+30     </tr>
+31     <?php
+32         $conn = mysqli_connect("localhost","root","kcci");
+33         mysqli_select_db($conn,"test");
+34         $result=mysqli_query($conn,"select * from sensing");
+35
+36         while($row = mysqli_fetch_array($result)){
+37             echo "<tr align = center>";
+38             echo '<td>'.$row['ID'].'</td>';
+39             echo '<td>'.$row['DATE'].'</td>';
+40             echo '<td>'.$row['TIME'].'</td>';
+41             echo '<td>'.$row['MOISTURE'].'</td>';
+42             echo '<td>'.$row['TEMPERATURE'].'</td>';
+43             echo "</tr>";
+44             mysqli_close($conn);
+45         }
+46     ?>
+47     </table></body></html>

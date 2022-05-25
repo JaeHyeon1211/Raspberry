@@ -1,0 +1,22 @@
+
+  GNU nano 5.4                                          insert.php *
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "kcci";
+$dbname = "arduinod1";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+$temp = $_GET['temp'];
+$moisture = $_GET['moisture'];
+$water_level = $_GET['water_level'];
+$water_temp = $_GET['water_temp'];
+
+$sql = "insert into bath_house(ID, DATE, TIME, TEMP, MOISTURE, WATER_LEVEL, WATER_TEMP) values(null, curdate(), curt>
+
+mysqli_query($conn, $sql);
+
+
+mysqli_close($conn);
+?>
